@@ -8,5 +8,8 @@ import { Component } from '@angular/core';
   styleUrl: './hello.component.scss'
 })
 export class HelloComponent {
-
+  value = "Lorem Ipsum";
+  getValue() {
+    return this.value;
+  }
 }
