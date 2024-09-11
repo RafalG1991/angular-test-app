@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-hello',
@@ -8,6 +8,8 @@ import { Component } from '@angular/core';
   styleUrl: './hello.component.scss'
 })
 export class HelloComponent {
+  @Input()
+  name: string = "";
   value = "Lorem Ipsum";
   getValue() {
     return this.value;
