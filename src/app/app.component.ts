@@ -11,4 +11,5 @@ import {HelloComponent} from "./hello/hello.component";
 })
 export class AppComponent {
   title = 'TestApp';
+  users: string[] = ['A', 'B', 'C'];
 }

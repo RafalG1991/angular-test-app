@@ -9,6 +9,8 @@ import {Component, Input} from '@angular/core';
 })
 export class HelloComponent {
   @Input()
+  users: string[] = [''];
+  @Input()
   name: string = "";
   value = "Lorem Ipsum";
   getValue() {
