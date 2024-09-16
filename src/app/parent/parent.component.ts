@@ -10,7 +10,7 @@ import {ChildComponent} from "../child/child.component";
 })
 export class ParentComponent {
   value: number = 10;
-  changeValue(value: number){
+  changeValue = (value: number) => {
     this.value = value;
   }
 }
