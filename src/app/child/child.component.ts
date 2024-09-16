@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-child',
@@ -8,5 +8,11 @@ import { Component } from '@angular/core';
   styleUrl: './child.component.scss'
 })
 export class ChildComponent {
+  @Input()
+  callback!: (newValue: number) => void;
 
+  setNewValue() {
+    const newValue = Math.round(Math.random() * 100);
+    this.callback(newValue);
+  }
 }
