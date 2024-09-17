@@ -13,6 +13,9 @@ import {NgForOf, NgIf} from "@angular/common";
 })
 export class AppComponent {
   title = 'TestApp';
-  users: string[] = ['A', 'B', 'C', 'D', 'E'];
+  users: {id: number, name: string}[] = [{id: 1, name: 'Tomek'}, {id: 2, name: 'Andrzej'}, {id: 3, name: 'Marzena'}, {id: 4, name: 'Wiesław'}];
   shouldBeVisible=true;
+  trackUsersFn(index: number, user: {id: number, name: string}) {
+    return user.id;
+  }
 }
