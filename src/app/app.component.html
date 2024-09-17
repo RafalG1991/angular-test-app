@@ -18,3 +18,9 @@
 }
 
 <div *ngFor="let user of users; trackBy: trackUsersFn">{{user.name}}</div>
+
+<ul>
+  @for (user of users; track user.id) {
+    <li>{{user.name}}</li>
+  }
+</ul>
