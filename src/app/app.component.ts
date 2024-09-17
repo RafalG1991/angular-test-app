@@ -18,4 +18,5 @@ export class AppComponent {
   trackUsersFn(index: number, user: {id: number, name: string}) {
     return user.id;
   }
+  isLoggedIn: boolean = true;
 }
