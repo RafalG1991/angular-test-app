@@ -1,2 +1,2 @@
 {{value}}
-<app-child [callback]="changeValue"/>
+<app-child [callback]="changeValue" (onNewValue)="handleNewValue($event)"/>

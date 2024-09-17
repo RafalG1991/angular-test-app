@@ -13,4 +13,8 @@ export class ParentComponent {
   changeValue = (value: number) => {
     this.value = value;
   }
+
+  handleNewValue(value: number) {
+    this.value = value;
+  }
 }
