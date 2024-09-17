@@ -1,4 +1,7 @@
 <app-parent />
+
+<div [ngClass]="{'is-active': isActive}">I should be active or not depending on class</div>
+
 <div *ngIf="shouldBeVisible">Lorem Ipsum</div>
 
 @if(shouldBeVisible) {
