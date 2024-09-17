@@ -1,3 +1,8 @@
 <app-parent />
 <div *ngIf="shouldBeVisible">Lorem Ipsum</div>
+
+@if(shouldBeVisible) {
+  <div>Lorem Ipsum 2</div>
+}
+
 <div *ngFor="let user of users; trackBy: trackUsersFn">{{user.name}}</div>
