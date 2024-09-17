@@ -12,6 +12,9 @@
   @case(false) {
     <h1>You are not logged in</h1>
   }
+  @default {
+    <h1>Unknown login state</h1>
+  }
 }
 
 <div *ngFor="let user of users; trackBy: trackUsersFn">{{user.name}}</div>
