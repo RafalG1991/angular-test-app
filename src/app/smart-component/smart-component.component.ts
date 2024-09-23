@@ -8,5 +8,8 @@ import { Component } from '@angular/core';
   styleUrl: './smart-component.component.scss'
 })
 export class SmartComponentComponent {
-
+  constructor() {
+    console.log("Constructor");
+    setInterval(() => console.log("Tick"), 1000);
+  }
 }

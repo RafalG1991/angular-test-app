@@ -6,11 +6,12 @@ import {NgClass, NgForOf, NgIf} from "@angular/common";
 import {ContainerComponent} from "./container/container.component";
 import {TitleComponent} from "./title/title.component";
 import {ConditionalContentComponent} from "./conditional-content/conditional-content.component";
+import {SmartComponentComponent} from "./smart-component/smart-component.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HelloComponent, ParentComponent, NgIf, NgForOf, NgClass, ContainerComponent, TitleComponent, ConditionalContentComponent],
+  imports: [RouterOutlet, HelloComponent, ParentComponent, NgIf, NgForOf, NgClass, ContainerComponent, TitleComponent, ConditionalContentComponent, SmartComponentComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
