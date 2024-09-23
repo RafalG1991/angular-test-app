@@ -1,29 +1,33 @@
-<app-parent />
+<app-container>
+  <h1>Hello from container!</h1>
+</app-container>
 
-<div [ngClass]="{'is-active': isActive}">I should be active or not depending on class</div>
+<!--<app-parent />-->
 
-<div *ngIf="shouldBeVisible">Lorem Ipsum</div>
+<!--<div [ngClass]="{'is-active': isActive}">I should be active or not depending on class</div>-->
 
-@if(shouldBeVisible) {
-  <div>Lorem Ipsum 2</div>
-}
+<!--<div *ngIf="shouldBeVisible">Lorem Ipsum</div>-->
 
-@switch (isLoggedIn) {
-  @case(true) {
-    <h1>You are logged in</h1>
-  }
-  @case(false) {
-    <h1>You are not logged in</h1>
-  }
-  @default {
-    <h1>Unknown login state</h1>
-  }
-}
+<!--@if(shouldBeVisible) {-->
+<!--  <div>Lorem Ipsum 2</div>-->
+<!--}-->
 
-<div *ngFor="let user of users; trackBy: trackUsersFn">{{user.name}}</div>
+<!--@switch (isLoggedIn) {-->
+<!--  @case(true) {-->
+<!--    <h1>You are logged in</h1>-->
+<!--  }-->
+<!--  @case(false) {-->
+<!--    <h1>You are not logged in</h1>-->
+<!--  }-->
+<!--  @default {-->
+<!--    <h1>Unknown login state</h1>-->
+<!--  }-->
+<!--}-->
 
-<ul>
-  @for (user of users; track user.id) {
-    <li>{{user.name}}</li>
-  }
-</ul>
+<!--<div *ngFor="let user of users; trackBy: trackUsersFn">{{user.name}}</div>-->
+
+<!--<ul>-->
+<!--  @for (user of users; track user.id) {-->
+<!--    <li>{{user.name}}</li>-->
+<!--  }-->
+<!--</ul>-->

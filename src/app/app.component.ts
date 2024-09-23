@@ -3,11 +3,12 @@ import { RouterOutlet } from '@angular/router';
 import {HelloComponent} from "./hello/hello.component";
 import {ParentComponent} from "./parent/parent.component";
 import {NgClass, NgForOf, NgIf} from "@angular/common";
+import {ContainerComponent} from "./container/container.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HelloComponent, ParentComponent, NgIf, NgForOf, NgClass],
+  imports: [RouterOutlet, HelloComponent, ParentComponent, NgIf, NgForOf, NgClass, ContainerComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
