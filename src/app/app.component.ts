@@ -5,11 +5,12 @@ import {ParentComponent} from "./parent/parent.component";
 import {NgClass, NgForOf, NgIf} from "@angular/common";
 import {ContainerComponent} from "./container/container.component";
 import {TitleComponent} from "./title/title.component";
+import {ConditionalContentComponent} from "./conditional-content/conditional-content.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HelloComponent, ParentComponent, NgIf, NgForOf, NgClass, ContainerComponent, TitleComponent],
+  imports: [RouterOutlet, HelloComponent, ParentComponent, NgIf, NgForOf, NgClass, ContainerComponent, TitleComponent, ConditionalContentComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
