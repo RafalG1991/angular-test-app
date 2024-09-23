@@ -4,11 +4,12 @@ import {HelloComponent} from "./hello/hello.component";
 import {ParentComponent} from "./parent/parent.component";
 import {NgClass, NgForOf, NgIf} from "@angular/common";
 import {ContainerComponent} from "./container/container.component";
+import {TitleComponent} from "./title/title.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HelloComponent, ParentComponent, NgIf, NgForOf, NgClass, ContainerComponent],
+  imports: [RouterOutlet, HelloComponent, ParentComponent, NgIf, NgForOf, NgClass, ContainerComponent, TitleComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
