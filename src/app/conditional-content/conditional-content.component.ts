@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-conditional-content',
@@ -8,5 +8,10 @@ import { Component } from '@angular/core';
   styleUrl: './conditional-content.component.scss'
 })
 export class ConditionalContentComponent {
+  @Input()
+  visible: boolean = true;
 
+  toggleVisibility = () => {
+    this.visible = !this.visible;
+  }
 }

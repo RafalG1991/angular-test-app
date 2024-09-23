@@ -1,1 +1,7 @@
-<p>conditional-content works!</p>
+<div>
+  Conditional content component
+  @if(visible) {
+    <ng-content></ng-content>
+  }
+  <button (click)="toggleVisibility()">Change visibility</button>
+</div>
