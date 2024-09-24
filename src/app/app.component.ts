@@ -31,6 +31,7 @@ export class AppComponent {
 
   handleClick = () => {
     this.text = 'Dolor sit amet';
+    this.shouldBeVisible = !this.shouldBeVisible;
   }
 
 }

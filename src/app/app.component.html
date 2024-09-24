@@ -1,4 +1,6 @@
-<app-foo [text]="text"></app-foo>
+@if(shouldBeVisible) {
+  <app-foo [text]="text"></app-foo>
+}
 <button (click)="handleClick()">Change text</button>
 
 <!--<app-container>-->
