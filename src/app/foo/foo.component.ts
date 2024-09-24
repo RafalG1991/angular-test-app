@@ -1,4 +1,4 @@
-import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges} from '@angular/core';
 
 @Component({
   selector: 'app-foo',
@@ -7,7 +7,7 @@ import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core'
   templateUrl: './foo.component.html',
   styleUrl: './foo.component.scss'
 })
-export class FooComponent implements OnInit, OnChanges{
+export class FooComponent implements OnInit, OnChanges, OnDestroy{
   @Input()
   text: string = '';
 
@@ -17,5 +17,9 @@ export class FooComponent implements OnInit, OnChanges{
 
   ngOnChanges(changes: SimpleChanges) {
     console.log(this.text, 'Change');
+  }
+
+  ngOnDestroy() {
+    console.log('On destroy');
   }
 }
