@@ -7,11 +7,12 @@ import {ContainerComponent} from "./container/container.component";
 import {TitleComponent} from "./title/title.component";
 import {ConditionalContentComponent} from "./conditional-content/conditional-content.component";
 import {SmartComponentComponent} from "./smart-component/smart-component.component";
+import {FooComponent} from "./foo/foo.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HelloComponent, ParentComponent, NgIf, NgForOf, NgClass, ContainerComponent, TitleComponent, ConditionalContentComponent, SmartComponentComponent],
+  imports: [RouterOutlet, HelloComponent, ParentComponent, NgIf, NgForOf, NgClass, ContainerComponent, TitleComponent, ConditionalContentComponent, SmartComponentComponent, FooComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
