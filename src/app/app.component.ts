@@ -26,4 +26,11 @@ export class AppComponent {
   isLoggedIn: boolean|null = null;
 
   isActive: boolean = true;
+
+  text: string = 'Lorem Ipsum';
+
+  handleClick = () => {
+    this.text = 'Dolor sit amet';
+  }
+
 }

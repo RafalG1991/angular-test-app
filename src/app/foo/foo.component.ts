@@ -13,5 +13,5 @@ export class FooComponent implements OnInit{
 
   ngOnInit() {
     console.log(this.text);
-}
+  }
 }
