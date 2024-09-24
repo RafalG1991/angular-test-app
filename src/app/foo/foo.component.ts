@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 
 @Component({
   selector: 'app-foo',
@@ -7,11 +7,15 @@ import {Component, Input, OnInit} from '@angular/core';
   templateUrl: './foo.component.html',
   styleUrl: './foo.component.scss'
 })
-export class FooComponent implements OnInit{
+export class FooComponent implements OnInit, OnChanges{
   @Input()
   text: string = '';
 
   ngOnInit() {
     console.log(this.text);
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    console.log(this.text, 'Change');
   }
 }
