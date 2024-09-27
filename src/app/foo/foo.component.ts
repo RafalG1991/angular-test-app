@@ -1,4 +1,4 @@
-import {Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges} from '@angular/core';
 
 @Component({
   selector: 'app-foo',
@@ -22,4 +22,10 @@ export class FooComponent implements OnInit, OnChanges, OnDestroy{
   ngOnDestroy() {
     console.log('On destroy');
   }
+
+  @Input()
+  value!: number;
+
+  @Output()
+  valueChange = new EventEmitter<number>();
 }
