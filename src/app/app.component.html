@@ -1,8 +1,7 @@
-@if(shouldBeVisible) {
-  <app-foo [text]="text"></app-foo>
-}
-<button (click)="handleClick()">Change text</button>
+<p>value parent: {{value}}</p>
+<app-foo [(value)]="value"></app-foo>
 
+<button (click)="increase()">+100</button>
 <!--<app-container>-->
 <!--  <app-title title="Title of the title component" />-->
 <!--  <app-conditional-content>-->
