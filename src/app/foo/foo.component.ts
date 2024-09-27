@@ -28,4 +28,8 @@ export class FooComponent implements OnInit, OnChanges, OnDestroy{
 
   @Output()
   valueChange = new EventEmitter<number>();
+
+  increase = () => {
+    this.valueChange.emit(this.value + 100);
+  }
 }
