@@ -34,4 +34,10 @@ export class AppComponent {
     this.shouldBeVisible = !this.shouldBeVisible;
   }
 
+  value: number = 1000;
+
+  increase = () => {
+    this.value = this.value + 100;
+  }
+
 }
