@@ -8,3 +8,6 @@
 <ng-container [ngTemplateOutlet]="temp" ]>
 
 </ng-container>
+
+<input type="text" name="value" #input>
+<button (click)="input.focus()">Click to focus on input</button>
