@@ -23,4 +23,6 @@ export class ChildComponent {
     const newValue = Math.round(Math.random() * 100);
     this.onNewValue.emit(newValue);
   }
+
+  value: number = Math.round(Math.random() * 10000);
 }
