@@ -3,6 +3,14 @@
 <app-template></app-template>
 
 <button (click)="increase()">+100 from parent</button>
+
+<app-child />
+<app-child />
+<app-child />
+<app-child />
+<app-child />
+<button (click)="calculateSum()">Sum!</button>
+<p>Sum: {{sum}}</p>
 <!--<app-container>-->
 <!--  <app-title title="Title of the title component" />-->
 <!--  <app-conditional-content>-->
