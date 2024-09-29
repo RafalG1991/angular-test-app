@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, QueryList, ViewChildren} from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import {HelloComponent} from "./hello/hello.component";
 import {ParentComponent} from "./parent/parent.component";
@@ -9,11 +9,12 @@ import {ConditionalContentComponent} from "./conditional-content/conditional-con
 import {SmartComponentComponent} from "./smart-component/smart-component.component";
 import {FooComponent} from "./foo/foo.component";
 import {TemplateComponent} from "./template/template.component";
+import {ChildComponent} from "./child/child.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HelloComponent, ParentComponent, NgIf, NgForOf, NgClass, ContainerComponent, TitleComponent, ConditionalContentComponent, SmartComponentComponent, FooComponent, TemplateComponent],
+  imports: [RouterOutlet, HelloComponent, ParentComponent, NgIf, NgForOf, NgClass, ContainerComponent, TitleComponent, ConditionalContentComponent, SmartComponentComponent, FooComponent, TemplateComponent, ChildComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
@@ -41,4 +42,12 @@ export class AppComponent {
     this.value = this.value + 100;
   }
 
+  @ViewChildren(ChildComponent)
+  childComponents!: QueryList<ChildComponent>
+
+  sum: number = 0;
+
+  calculateSum = () => {
+    this.sum = this.childComponents.reduce((acc, curr) => acc + curr.value, 0);
+  }
 }
