@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
 import {NgTemplateOutlet} from "@angular/common";
 
 @Component({
@@ -11,5 +11,10 @@ import {NgTemplateOutlet} from "@angular/common";
   styleUrl: './template.component.scss'
 })
 export class TemplateComponent {
+  @ViewChild('input')
+  inputElement: any;
 
+  show () {
+    console.log(this.inputElement);
+  }
 }
