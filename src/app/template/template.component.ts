@@ -1,4 +1,4 @@
-import {Component, ViewChild} from '@angular/core';
+import {Component, ElementRef, ViewChild} from '@angular/core';
 import {NgTemplateOutlet} from "@angular/common";
 
 @Component({
@@ -12,7 +12,7 @@ import {NgTemplateOutlet} from "@angular/common";
 })
 export class TemplateComponent {
   @ViewChild('input')
-  inputElement: any;
+  inputElement!: ElementRef<HTMLInputElement>;
 
   show () {
     console.log(this.inputElement);
