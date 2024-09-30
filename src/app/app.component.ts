@@ -1,4 +1,4 @@
-import {Component, QueryList, ViewChildren} from '@angular/core';
+import {Component, QueryList, signal, ViewChildren, WritableSignal} from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import {HelloComponent} from "./hello/hello.component";
 import {ParentComponent} from "./parent/parent.component";
@@ -50,4 +50,6 @@ export class AppComponent {
   calculateSum = () => {
     this.sum = this.childComponents.reduce((acc, curr) => acc + curr.value, 0);
   }
+
+  counter: WritableSignal<number> = signal(0);
 }
