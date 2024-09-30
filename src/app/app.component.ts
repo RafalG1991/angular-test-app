@@ -1,4 +1,4 @@
-import {Component, computed, QueryList, Signal, signal, ViewChildren, WritableSignal} from '@angular/core';
+import {Component, computed, effect, QueryList, Signal, signal, ViewChildren, WritableSignal} from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import {HelloComponent} from "./hello/hello.component";
 import {ParentComponent} from "./parent/parent.component";
@@ -53,6 +53,12 @@ export class AppComponent {
 
   counter: WritableSignal<number> = signal(100);
   doubleCounter: Signal<number> = computed(() => this.counter() * 2);
+
+  constructor() {
+    effect(() => {
+      console.log(`Counter value ${this.counter()}`)
+    });
+  }
 
   increaseSignal() {
     this.counter.update(prev => prev + 1);
