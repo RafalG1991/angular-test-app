@@ -61,4 +61,8 @@ export class AppComponent {
   decreaseSignal() {
     this.counter.update(prev => prev - 1);
   }
+
+  reset() {
+    this.counter.set(0);
+  }
 }
