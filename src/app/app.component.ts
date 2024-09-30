@@ -53,4 +53,12 @@ export class AppComponent {
 
   counter: WritableSignal<number> = signal(100);
   doubleCounter: Signal<number> = computed(() => this.counter() * 2);
+
+  increaseSignal() {
+    this.counter.update(prev => prev + 1);
+  }
+
+  decreaseSignal() {
+    this.counter.update(prev => prev - 1);
+  }
 }
