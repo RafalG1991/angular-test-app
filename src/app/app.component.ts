@@ -55,8 +55,12 @@ export class AppComponent {
   doubleCounter: Signal<number> = computed(() => this.counter() * 2);
 
   constructor() {
-    effect(() => {
+    effect((onCleanup) => {
       console.log(`Counter value ${this.counter()}`)
+
+      onCleanup(() => {
+        console.log('Cleanup called!')
+      })
     });
   }
 
