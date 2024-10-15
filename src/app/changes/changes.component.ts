@@ -10,4 +10,8 @@ import {Component, Input} from '@angular/core';
 export class ChangesComponent {
   @Input()
   value: string = '';
+
+  changeValue() {
+    this.value = 'Lorem Ipsum';
+  }
 }
