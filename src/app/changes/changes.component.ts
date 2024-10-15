@@ -1,4 +1,4 @@
-import {Component, DoCheck, Input} from '@angular/core';
+import {Component, DoCheck, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-changes',
@@ -7,7 +7,7 @@ import {Component, DoCheck, Input} from '@angular/core';
   templateUrl: './changes.component.html',
   styleUrl: './changes.component.scss'
 })
-export class ChangesComponent implements DoCheck{
+export class ChangesComponent implements DoCheck, OnInit {
   @Input()
   value: string = '';
 
@@ -17,5 +17,11 @@ export class ChangesComponent implements DoCheck{
 
   ngDoCheck() {
     console.log('Check');
+  }
+
+  ngOnInit() {
+    setInterval(() => {
+      console.log('Tick!');
+    }, 1000);
   }
 }
