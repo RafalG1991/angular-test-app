@@ -1,4 +1,4 @@
-import {Component, DoCheck, Input, OnInit} from '@angular/core';
+import {Component, DoCheck, Input, NgZone, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-changes',
@@ -15,13 +15,17 @@ export class ChangesComponent implements DoCheck, OnInit {
     this.value = 'Lorem Ipsum';
   }
 
+  constructor(private ngZone: NgZone) {}
+
   ngDoCheck() {
     console.log('Check');
   }
 
   ngOnInit() {
-    setInterval(() => {
-      console.log('Tick!');
-    }, 1000);
+    this.ngZone.runOutsideAngular(() => {
+      setInterval(() => {
+        console.log('Tick!');
+      }, 1000);
+    });
   }
 }
