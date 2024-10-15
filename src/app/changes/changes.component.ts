@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, DoCheck, Input} from '@angular/core';
 
 @Component({
   selector: 'app-changes',
@@ -7,11 +7,15 @@ import {Component, Input} from '@angular/core';
   templateUrl: './changes.component.html',
   styleUrl: './changes.component.scss'
 })
-export class ChangesComponent {
+export class ChangesComponent implements DoCheck{
   @Input()
   value: string = '';
 
   changeValue() {
     this.value = 'Lorem Ipsum';
+  }
+
+  ngDoCheck() {
+    console.log('Check');
   }
 }
