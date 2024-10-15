@@ -1,4 +1,4 @@
-import {Component, DoCheck, Input, NgZone, OnInit} from '@angular/core';
+import {Component, DoCheck, Input, NgZone, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 
 @Component({
   selector: 'app-changes',
@@ -7,7 +7,7 @@ import {Component, DoCheck, Input, NgZone, OnInit} from '@angular/core';
   templateUrl: './changes.component.html',
   styleUrl: './changes.component.scss'
 })
-export class ChangesComponent implements DoCheck, OnInit {
+export class ChangesComponent implements DoCheck, OnInit, OnChanges {
   @Input()
   value: string = '';
 
@@ -27,5 +27,8 @@ export class ChangesComponent implements DoCheck, OnInit {
         console.log('Tick!');
       }, 1000);
     });
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
   }
 }
