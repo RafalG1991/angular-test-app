@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-changes',
@@ -8,5 +8,6 @@ import { Component } from '@angular/core';
   styleUrl: './changes.component.scss'
 })
 export class ChangesComponent {
-
+  @Input()
+  value: string = '';
 }
