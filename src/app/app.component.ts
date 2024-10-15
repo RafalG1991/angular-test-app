@@ -10,11 +10,12 @@ import {SmartComponentComponent} from "./smart-component/smart-component.compone
 import {FooComponent} from "./foo/foo.component";
 import {TemplateComponent} from "./template/template.component";
 import {ChildComponent} from "./child/child.component";
+import {ChangesComponent} from "./changes/changes.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HelloComponent, ParentComponent, NgIf, NgForOf, NgClass, ContainerComponent, TitleComponent, ConditionalContentComponent, SmartComponentComponent, FooComponent, TemplateComponent, ChildComponent],
+  imports: [RouterOutlet, HelloComponent, ParentComponent, NgIf, NgForOf, NgClass, ContainerComponent, TitleComponent, ConditionalContentComponent, SmartComponentComponent, FooComponent, TemplateComponent, ChildComponent, ChangesComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
@@ -36,7 +37,7 @@ export class AppComponent {
     this.shouldBeVisible = !this.shouldBeVisible;
   }
 
-  value: number = 1000;
+  value: string = 'change detection';
 
   increase = () => {
     this.value = this.value + 100;
