@@ -11,6 +11,9 @@ export class ChangesComponent implements DoCheck, OnInit, OnChanges {
   @Input()
   value: string = '';
 
+  @Input()
+  values: number[] = [];
+
   changeValue() {
     this.value = 'Lorem Ipsum';
   }
