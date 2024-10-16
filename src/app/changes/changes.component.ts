@@ -1,11 +1,11 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  DoCheck,
+  DoCheck, EventEmitter,
   Input,
   NgZone,
   OnChanges,
-  OnInit,
+  OnInit, Output,
   SimpleChanges
 } from '@angular/core';
 
@@ -23,6 +23,9 @@ export class ChangesComponent implements DoCheck, OnInit, OnChanges {
 
   @Input()
   values: number[] = [];
+
+  @Output()
+  onNewValue= new EventEmitter<number>();
 
   changeValue() {
     this.value = 'Lorem Ipsum';
@@ -44,5 +47,10 @@ export class ChangesComponent implements DoCheck, OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges) {
     console.log('New change!', changes);
+  }
+
+  addNewValue() {
+    const newValue = Math.round(Math.random() * 1000);
+    this.onNewValue.emit(newValue);
   }
 }
