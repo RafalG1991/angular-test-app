@@ -38,6 +38,7 @@ export class AppComponent {
   }
 
   value: string = 'change detection';
+  values: number[] = [];
 
   increase = () => {
     this.value = this.value + 100;
