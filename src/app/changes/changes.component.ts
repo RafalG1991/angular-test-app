@@ -33,5 +33,6 @@ export class ChangesComponent implements DoCheck, OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges) {
+    console.log('New change!', changes);
   }
 }
