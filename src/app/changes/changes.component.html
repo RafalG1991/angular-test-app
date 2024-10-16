@@ -1,2 +1,7 @@
 <p>{{value}}</p>
+<ul>
+  @for(value of values; track $index) {
+    <li>{{value}}</li>
+  }
+</ul>
 <button (click)="changeValue()">Change value</button>
