@@ -83,4 +83,8 @@ export class AppComponent {
   reset() {
     this.counter.set(0);
   }
+
+  handleAddNewValue(newValue: number) {
+    this.values.push(newValue);
+  }
 }
