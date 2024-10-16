@@ -40,6 +40,11 @@ export class AppComponent {
   value: string = 'change detection';
   values: number[] = [];
 
+  addNewValue() {
+    const newValue = Math.round(Math.random() * 100);
+    this.values.push(newValue);
+  }
+
   increase = () => {
     this.value = this.value + 100;
   }
