@@ -42,7 +42,8 @@ export class AppComponent {
 
   addNewValue() {
     const newValue = Math.round(Math.random() * 100);
-    this.values.push(newValue);
+    // this.values.push(newValue);
+    this.values = [...this.values, newValue];
   }
 
   increase = () => {
