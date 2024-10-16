@@ -1,4 +1,4 @@
-<app-changes [value]="value" [values]="values"></app-changes>
+<app-changes [value]="value" [values]="values" (onNewValue)="handleAddNewValue($event)"></app-changes>
 <button (click)="addNewValue()">Add new value</button>
 
 
