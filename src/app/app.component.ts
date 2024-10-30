@@ -1,4 +1,14 @@
-import {Component, computed, effect, QueryList, Signal, signal, ViewChildren, WritableSignal} from '@angular/core';
+import {
+  Component,
+  computed,
+  effect,
+  OnInit,
+  QueryList,
+  Signal,
+  signal,
+  ViewChildren,
+  WritableSignal
+} from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import {HelloComponent} from "./hello/hello.component";
 import {ParentComponent} from "./parent/parent.component";
@@ -11,6 +21,7 @@ import {FooComponent} from "./foo/foo.component";
 import {TemplateComponent} from "./template/template.component";
 import {ChildComponent} from "./child/child.component";
 import {ChangesComponent} from "./changes/changes.component";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-root',
@@ -19,7 +30,7 @@ import {ChangesComponent} from "./changes/changes.component";
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'TestApp';
   users: {id: number, name: string}[] = [{id: 1, name: 'Tomek'}, {id: 2, name: 'Andrzej'}, {id: 3, name: 'Marzena'}, {id: 4, name: 'Wiesław'}];
   shouldBeVisible=true;
@@ -86,5 +97,16 @@ export class AppComponent {
 
   handleAddNewValue(newValue: number) {
     this.values.push(newValue);
+  }
+
+  ngOnInit(): void {
+    const observable = new Observable(observer => {
+      observer.next(1000);
+    });
+
+    observable.subscribe(val => {
+      console.log(val);
+    });
+
   }
 }
