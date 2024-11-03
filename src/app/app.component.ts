@@ -100,13 +100,18 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const observable = new Observable(observer => {
+    const observable = new Observable<number>(observer => {
       observer.next(1000);
+
+      return {
+        unsubscribe() {
+          console.log("observable unsubscribe");
+        }
+      }
     });
 
     observable.subscribe(val => {
       console.log(val);
     });
-
   }
 }
