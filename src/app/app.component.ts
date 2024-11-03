@@ -12,7 +12,7 @@ import {
 import { RouterOutlet } from '@angular/router';
 import {HelloComponent} from "./hello/hello.component";
 import {ParentComponent} from "./parent/parent.component";
-import {NgClass, NgForOf, NgIf} from "@angular/common";
+import {AsyncPipe, NgClass, NgForOf, NgIf} from "@angular/common";
 import {ContainerComponent} from "./container/container.component";
 import {TitleComponent} from "./title/title.component";
 import {ConditionalContentComponent} from "./conditional-content/conditional-content.component";
@@ -21,12 +21,12 @@ import {FooComponent} from "./foo/foo.component";
 import {TemplateComponent} from "./template/template.component";
 import {ChildComponent} from "./child/child.component";
 import {ChangesComponent} from "./changes/changes.component";
-import {Observable} from "rxjs";
+import {observable, Observable} from "rxjs";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HelloComponent, ParentComponent, NgIf, NgForOf, NgClass, ContainerComponent, TitleComponent, ConditionalContentComponent, SmartComponentComponent, FooComponent, TemplateComponent, ChildComponent, ChangesComponent],
+  imports: [RouterOutlet, HelloComponent, ParentComponent, NgIf, NgForOf, NgClass, ContainerComponent, TitleComponent, ConditionalContentComponent, SmartComponentComponent, FooComponent, TemplateComponent, ChildComponent, ChangesComponent, AsyncPipe],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
@@ -99,8 +99,10 @@ export class AppComponent implements OnInit {
     this.values.push(newValue);
   }
 
+  obsValue!: Observable<number>;
+
   ngOnInit(): void {
-    const observable = new Observable<number>(observer => {
+    this.obsValue = new Observable<number>(observer => {
       observer.next(1000);
 
       return {
@@ -110,8 +112,8 @@ export class AppComponent implements OnInit {
       }
     });
 
-    observable.subscribe(val => {
-      console.log(val);
-    });
+    // observable.subscribe(val => {
+    //   console.log(val);
+    // });
   }
 }
