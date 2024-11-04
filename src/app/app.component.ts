@@ -103,12 +103,23 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.obsValue = new Observable<number>(observer => {
-      observer.next(1000);
+      // observer.next(1000);
+      let counter = 0;
+      const interval = setInterval(() => {
+        observer.next(counter++);
+      }, 1000);
 
       return {
         unsubscribe() {
           console.log("observable unsubscribe");
+          clearInterval(interval);
         }
+      }
+    });
+
+    this.obsValue.subscribe(val => {
+      if(val % 2 === 0) {
+        console.log(val);
       }
     });
 
