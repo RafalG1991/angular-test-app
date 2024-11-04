@@ -21,7 +21,12 @@ import {FooComponent} from "./foo/foo.component";
 import {TemplateComponent} from "./template/template.component";
 import {ChildComponent} from "./child/child.component";
 import {ChangesComponent} from "./changes/changes.component";
-import {filter, from, observable, Observable, of, take, takeUntil} from "rxjs";
+import {delay, filter, from, map, observable, Observable, of, take, takeUntil, tap} from "rxjs";
+
+type User = {
+  name: string;
+  age: number;
+}
 
 @Component({
   selector: 'app-root',
@@ -101,25 +106,41 @@ export class AppComponent implements OnInit {
 
   obsValue!: Observable<number>;
 
-  ngOnInit(): void {
-    const counter = new Observable<number>(observer => {
-      let counter = 0;
-      setInterval(() => {
-        observer.next(counter++);
-      }, 1000);
+  isAdult$ = this.getUser().pipe(
+    tap(user => console.log(user.age)),
+    map(user => user.age >= 18)
+  )
+
+  getUser(): Observable<User> {
+    return of({
+      name: "Marcin",
+      age: Math.round((Math.random() * 60) + 1),
     })
-
-    const watchdog = new Observable<boolean>(observer => {
-      setTimeout(() => {
-        observer.next(true);
-      }, 5000);
-    });
-
-    counter
       .pipe(
-        takeUntil(watchdog),
+        delay(2000)
       )
-      .subscribe(val => console.log(val));
+  }
+
+  ngOnInit(): void {
+
+    // const counter = new Observable<number>(observer => {
+    //   let counter = 0;
+    //   setInterval(() => {
+    //     observer.next(counter++);
+    //   }, 1000);
+    // })
+    //
+    // const watchdog = new Observable<boolean>(observer => {
+    //   setTimeout(() => {
+    //     observer.next(true);
+    //   }, 5000);
+    // });
+    //
+    // counter
+    //   .pipe(
+    //     takeUntil(watchdog),
+    //   )
+    //   .subscribe(val => console.log(val));
 
     // counter
     //   .pipe(
@@ -158,4 +179,6 @@ export class AppComponent implements OnInit {
     //   console.log(val);
     // });
   }
+
+  protected readonly map = map;
 }
