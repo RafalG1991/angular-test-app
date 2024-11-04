@@ -115,15 +115,14 @@ export class AppComponent implements OnInit {
           clearInterval(interval);
         }
       }
-    });
-
-    this.obsValue
+    })
       .pipe(
         filter(el => el % 2 === 0)
       )
-      .subscribe(val => {
-        console.log(val);
-    });
+
+    // this.obsValue.subscribe(val => {
+    //     console.log(val);
+    // });
 
     // observable.subscribe(val => {
     //   console.log(val);
