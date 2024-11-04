@@ -21,7 +21,7 @@ import {FooComponent} from "./foo/foo.component";
 import {TemplateComponent} from "./template/template.component";
 import {ChildComponent} from "./child/child.component";
 import {ChangesComponent} from "./changes/changes.component";
-import {filter, observable, Observable} from "rxjs";
+import {filter, from, observable, Observable, of} from "rxjs";
 
 @Component({
   selector: 'app-root',
@@ -102,23 +102,29 @@ export class AppComponent implements OnInit {
   obsValue!: Observable<number>;
 
   ngOnInit(): void {
-    this.obsValue = new Observable<number>(observer => {
-      // observer.next(1000);
-      let counter = 0;
-      const interval = setInterval(() => {
-        observer.next(counter++);
-      }, 1000);
+    const obs1$ = of([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+    const obs2$ = from([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 
-      return {
-        unsubscribe() {
-          console.log("observable unsubscribe");
-          clearInterval(interval);
-        }
-      }
-    })
-      .pipe(
-        filter(el => el % 2 === 0)
-      )
+    obs1$.subscribe(val => console.log("OF", val));
+    obs2$.subscribe(val => console.log("FROM", val));
+
+    // this.obsValue = new Observable<number>(observer => {
+    //   // observer.next(1000);
+    //   let counter = 0;
+    //   const interval = setInterval(() => {
+    //     observer.next(counter++);
+    //   }, 1000);
+    //
+    //   return {
+    //     unsubscribe() {
+    //       console.log("observable unsubscribe");
+    //       clearInterval(interval);
+    //     }
+    //   }
+    // })
+    //   .pipe(
+    //     filter(el => el % 2 === 0)
+    //   )
 
     // this.obsValue.subscribe(val => {
     //     console.log(val);
