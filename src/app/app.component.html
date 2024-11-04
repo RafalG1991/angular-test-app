@@ -1,4 +1,10 @@
-<h1>Observable: {{obsValue | async}}</h1>
+@if(isAdult$ | async) {
+  <h1>User is adult!</h1>
+} @else {
+  <h1>User is not adult!</h1>
+}
+
+<!--<h1>Observable: {{obsValue | async}}</h1>-->
 
 <!--<app-changes [value]="value" [values]="values" (onNewValue)="handleAddNewValue($event)"></app-changes>-->
 <!--<button (click)="addNewValue()">Add new value</button>-->
