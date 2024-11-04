@@ -1,6 +1,6 @@
 @if(isAdult$ | async) {
   <h1>User is adult!</h1>
-} @else {
+} @else if((isAdult$ | async) === false) {
   <h1>User is not adult!</h1>
 }
 
