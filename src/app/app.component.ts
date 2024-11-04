@@ -21,7 +21,7 @@ import {FooComponent} from "./foo/foo.component";
 import {TemplateComponent} from "./template/template.component";
 import {ChildComponent} from "./child/child.component";
 import {ChangesComponent} from "./changes/changes.component";
-import {observable, Observable} from "rxjs";
+import {filter, observable, Observable} from "rxjs";
 
 @Component({
   selector: 'app-root',
@@ -117,10 +117,12 @@ export class AppComponent implements OnInit {
       }
     });
 
-    this.obsValue.subscribe(val => {
-      if(val % 2 === 0) {
+    this.obsValue
+      .pipe(
+        filter(el => el % 2 === 0)
+      )
+      .subscribe(val => {
         console.log(val);
-      }
     });
 
     // observable.subscribe(val => {
