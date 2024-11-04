@@ -21,7 +21,7 @@ import {FooComponent} from "./foo/foo.component";
 import {TemplateComponent} from "./template/template.component";
 import {ChildComponent} from "./child/child.component";
 import {ChangesComponent} from "./changes/changes.component";
-import {filter, from, observable, Observable, of, take} from "rxjs";
+import {filter, from, observable, Observable, of, take, takeUntil} from "rxjs";
 
 @Component({
   selector: 'app-root',
@@ -109,11 +109,23 @@ export class AppComponent implements OnInit {
       }, 1000);
     })
 
+    const watchdog = new Observable<boolean>(observer => {
+      setTimeout(() => {
+        observer.next(true);
+      }, 5000);
+    });
+
     counter
       .pipe(
-        take(5),
+        takeUntil(watchdog),
       )
       .subscribe(val => console.log(val));
+
+    // counter
+    //   .pipe(
+    //     take(5),
+    //   )
+    //   .subscribe(val => console.log(val));
     // const obs1$ = of([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
     // const obs2$ = from([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
     //
