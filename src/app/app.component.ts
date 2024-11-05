@@ -122,7 +122,7 @@ export class AppComponent implements OnInit {
   // }
 
   ngOnInit(): void {
-    interval(1000).subscribe(val => console.log(val));
+    interval(1000).pipe(map(val => 1)).subscribe(val => console.log(val));
 
     // const counter = new Observable<number>(observer => {
     //   let counter = 0;
