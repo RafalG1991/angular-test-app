@@ -1,11 +1,12 @@
 import {
+  AfterViewInit,
   Component,
   computed,
-  effect, OnDestroy,
+  effect, ElementRef, OnDestroy,
   OnInit,
   QueryList,
   Signal,
-  signal,
+  signal, ViewChild,
   ViewChildren,
   WritableSignal
 } from '@angular/core';
@@ -21,7 +22,22 @@ import {FooComponent} from "./foo/foo.component";
 import {TemplateComponent} from "./template/template.component";
 import {ChildComponent} from "./child/child.component";
 import {ChangesComponent} from "./changes/changes.component";
-import {delay, filter, from, interval, map, observable, Observable, of, Subscription, take, takeUntil, tap, timer} from "rxjs";
+import {
+  delay,
+  filter,
+  from,
+  fromEvent,
+  interval,
+  map,
+  observable,
+  Observable,
+  of,
+  Subscription,
+  take,
+  takeUntil,
+  tap,
+  timer
+} from "rxjs";
 
 type User = {
   name: string;
@@ -35,7 +51,7 @@ type User = {
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent implements OnInit, OnDestroy {
+export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
   title = 'TestApp';
   users: {id: number, name: string}[] = [{id: 1, name: 'Tomek'}, {id: 2, name: 'Andrzej'}, {id: 3, name: 'Marzena'}, {id: 4, name: 'Wiesław'}];
   shouldBeVisible=true;
@@ -122,6 +138,13 @@ export class AppComponent implements OnInit, OnDestroy {
   // }
 
   timer!: Subscription;
+
+  @ViewChild('btn')
+  button!: ElementRef<HTMLButtonElement>
+
+  ngAfterViewInit() {
+    fromEvent(this.button.nativeElement, 'click').subscribe(val => console.log('Click!', val));
+  }
 
   ngOnInit(): void {
     this.timer = interval(1000)
