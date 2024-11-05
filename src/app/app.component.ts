@@ -21,7 +21,7 @@ import {FooComponent} from "./foo/foo.component";
 import {TemplateComponent} from "./template/template.component";
 import {ChildComponent} from "./child/child.component";
 import {ChangesComponent} from "./changes/changes.component";
-import {delay, filter, from, map, observable, Observable, of, take, takeUntil, tap} from "rxjs";
+import {delay, filter, from, interval, map, observable, Observable, of, take, takeUntil, tap} from "rxjs";
 
 type User = {
   name: string;
@@ -104,24 +104,25 @@ export class AppComponent implements OnInit {
     this.values.push(newValue);
   }
 
-  obsValue!: Observable<number>;
-
-  isAdult$ = this.getUser().pipe(
-    tap(user => console.log(user.age)),
-    map(user => user.age >= 18)
-  )
-
-  getUser(): Observable<User> {
-    return of({
-      name: "Marcin",
-      age: Math.round((Math.random() * 60) + 1),
-    })
-      .pipe(
-        delay(2000)
-      )
-  }
+  // obsValue!: Observable<number>;
+  //
+  // isAdult$ = this.getUser().pipe(
+  //   tap(user => console.log(user.age)),
+  //   map(user => user.age >= 18)
+  // )
+  //
+  // getUser(): Observable<User> {
+  //   return of({
+  //     name: "Marcin",
+  //     age: Math.round((Math.random() * 60) + 1),
+  //   })
+  //     .pipe(
+  //       delay(2000)
+  //     )
+  // }
 
   ngOnInit(): void {
+    interval(1000).subscribe(val => console.log(val));
 
     // const counter = new Observable<number>(observer => {
     //   let counter = 0;
