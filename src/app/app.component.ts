@@ -32,7 +32,7 @@ import {
   map,
   observable,
   Observable,
-  of,
+  of, share,
   Subscription,
   take,
   takeUntil,
@@ -152,7 +152,7 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   ngOnInit(): void {
-    const obs = interval(1000);
+    const obs = interval(1000).pipe(share());
 
     obs.subscribe(val => console.log(val));
 
