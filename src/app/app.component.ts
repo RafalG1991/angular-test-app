@@ -21,7 +21,7 @@ import {FooComponent} from "./foo/foo.component";
 import {TemplateComponent} from "./template/template.component";
 import {ChildComponent} from "./child/child.component";
 import {ChangesComponent} from "./changes/changes.component";
-import {delay, filter, from, interval, map, observable, Observable, of, Subscription, take, takeUntil, tap} from "rxjs";
+import {delay, filter, from, interval, map, observable, Observable, of, Subscription, take, takeUntil, tap, timer} from "rxjs";
 
 type User = {
   name: string;
@@ -129,6 +129,9 @@ export class AppComponent implements OnInit, OnDestroy {
         map(val => 1),
         take(5)
       )
+      .subscribe(val => console.log(val));
+
+    timer(5000)
       .subscribe(val => console.log(val));
 
     // const counter = new Observable<number>(observer => {
