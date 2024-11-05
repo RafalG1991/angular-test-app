@@ -32,7 +32,7 @@ import {
   map,
   observable,
   Observable,
-  of, share,
+  of, share, Subject,
   Subscription,
   take,
   takeUntil,
@@ -152,14 +152,20 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   ngOnInit(): void {
-    const obs = interval(1000).pipe(share());
+    // const obs = interval(1000).pipe(share());
+    //
+    // obs.subscribe(val => console.log(val));
+    //
+    // setTimeout(() => {
+    //   obs.subscribe(val => console.log(val));
+    // }, 5000);
 
-    obs.subscribe(val => console.log(val));
+    const subject = new Subject<number>();
 
-    setTimeout(() => {
-      obs.subscribe(val => console.log(val));
-    }, 5000);
+    subject.subscribe(val => console.log(val));
+    subject.subscribe(val => console.log(val));
 
+    subject.next(1000);
     // this.timer = interval(1000)
     //   .pipe(
     //     map(val => 1),
