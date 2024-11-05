@@ -1,7 +1,7 @@
 import {
   Component,
   computed,
-  effect,
+  effect, OnDestroy,
   OnInit,
   QueryList,
   Signal,
@@ -21,7 +21,7 @@ import {FooComponent} from "./foo/foo.component";
 import {TemplateComponent} from "./template/template.component";
 import {ChildComponent} from "./child/child.component";
 import {ChangesComponent} from "./changes/changes.component";
-import {delay, filter, from, interval, map, observable, Observable, of, take, takeUntil, tap} from "rxjs";
+import {delay, filter, from, interval, map, observable, Observable, of, Subscription, take, takeUntil, tap} from "rxjs";
 
 type User = {
   name: string;
@@ -35,7 +35,7 @@ type User = {
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
   title = 'TestApp';
   users: {id: number, name: string}[] = [{id: 1, name: 'Tomek'}, {id: 2, name: 'Andrzej'}, {id: 3, name: 'Marzena'}, {id: 4, name: 'Wiesław'}];
   shouldBeVisible=true;
@@ -121,8 +121,15 @@ export class AppComponent implements OnInit {
   //     )
   // }
 
+  timer!: Subscription;
+
   ngOnInit(): void {
-    interval(1000).pipe(map(val => 1)).subscribe(val => console.log(val));
+    this.timer = interval(1000)
+      .pipe(
+        map(val => 1),
+        take(5)
+      )
+      .subscribe(val => console.log(val));
 
     // const counter = new Observable<number>(observer => {
     //   let counter = 0;
@@ -181,5 +188,7 @@ export class AppComponent implements OnInit {
     // });
   }
 
-  protected readonly map = map;
+  ngOnDestroy(): void {
+    this.timer.unsubscribe();
+  }
 }
