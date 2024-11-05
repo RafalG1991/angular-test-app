@@ -23,6 +23,7 @@ import {TemplateComponent} from "./template/template.component";
 import {ChildComponent} from "./child/child.component";
 import {ChangesComponent} from "./changes/changes.component";
 import {
+  debounce, debounceTime,
   delay,
   filter,
   from,
@@ -143,7 +144,11 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
   button!: ElementRef<HTMLButtonElement>
 
   ngAfterViewInit() {
-    fromEvent(this.button.nativeElement, 'click').subscribe(val => console.log('Click!', val));
+    fromEvent(this.button.nativeElement, 'click')
+      .pipe(
+        debounceTime(5000),
+      )
+      .subscribe(val => console.log('Click!', val));
   }
 
   ngOnInit(): void {
