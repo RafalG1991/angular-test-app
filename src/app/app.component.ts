@@ -144,23 +144,31 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
   button!: ElementRef<HTMLButtonElement>
 
   ngAfterViewInit() {
-    fromEvent(this.button.nativeElement, 'click')
-      .pipe(
-        debounceTime(5000),
-      )
-      .subscribe(val => console.log('Click!', val));
+    // fromEvent(this.button.nativeElement, 'click')
+    //   .pipe(
+    //     debounceTime(5000),
+    //   )
+    //   .subscribe(val => console.log('Click!', val));
   }
 
   ngOnInit(): void {
-    this.timer = interval(1000)
-      .pipe(
-        map(val => 1),
-        take(5)
-      )
-      .subscribe(val => console.log(val));
+    const obs = interval(1000);
 
-    timer(5000)
-      .subscribe(val => console.log(val));
+    obs.subscribe(val => console.log(val));
+
+    setTimeout(() => {
+      obs.subscribe(val => console.log(val));
+    }, 5000);
+
+    // this.timer = interval(1000)
+    //   .pipe(
+    //     map(val => 1),
+    //     take(5)
+    //   )
+    //   .subscribe(val => console.log(val));
+    //
+    // timer(5000)
+    //   .subscribe(val => console.log(val));
 
     // const counter = new Observable<number>(observer => {
     //   let counter = 0;
