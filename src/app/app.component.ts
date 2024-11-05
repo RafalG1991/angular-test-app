@@ -165,7 +165,10 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
     subject.subscribe(val => console.log(val));
     subject.subscribe(val => console.log(val));
 
-    subject.next(1000);
+    // subject.next(1000);
+
+    interval(1000).subscribe(subject);
+
     // this.timer = interval(1000)
     //   .pipe(
     //     map(val => 1),
