@@ -41,6 +41,7 @@ import {
 } from "rxjs";
 import {FooService} from "./foo.service";
 import {UserStatusComponent} from "./user-status/user-status.component";
+import {AuthService} from "./services/auth.service";
 
 type User = {
   name: string;
@@ -59,6 +60,14 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
 
   toggle() {
     this.isVisible = !this.isVisible;
+  }
+
+  login() {
+    this.authService.login();
+  }
+
+  logout() {
+    this.authService.logout();
   }
 
   title = 'TestApp';
@@ -105,7 +114,7 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
 
   value!: number;
 
-  constructor(private fooService: FooService) {
+  constructor(private fooService: FooService, private authService: AuthService) {
     this.value = fooService.getValue();
     effect((onCleanup) => {
       console.log(`Counter value ${this.counter()}`)
