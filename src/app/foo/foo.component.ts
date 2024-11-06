@@ -1,4 +1,15 @@
-import {Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges} from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  inject,
+  Input,
+  OnChanges,
+  OnDestroy,
+  OnInit,
+  Output,
+  SimpleChanges
+} from '@angular/core';
+import {FooService} from "../foo.service";
 
 @Component({
   selector: 'app-foo',
@@ -8,6 +19,8 @@ import {Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, Si
   styleUrl: './foo.component.scss'
 })
 export class FooComponent implements OnInit, OnChanges, OnDestroy{
+  private fooService = inject(FooService);
+
   @Input()
   text: string = '';
 
