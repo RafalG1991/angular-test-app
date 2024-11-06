@@ -71,14 +71,14 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
     this.shouldBeVisible = !this.shouldBeVisible;
   }
 
-  value: string = 'change detection';
-  values: number[] = [];
+  // value: string = 'change detection';
+  // values: number[] = [];
 
-  addNewValue() {
-    const newValue = Math.round(Math.random() * 100);
-    this.values.push(newValue);
-    // this.values = [...this.values, newValue];
-  }
+  // addNewValue() {
+  //   const newValue = Math.round(Math.random() * 100);
+  //   this.values.push(newValue);
+  //   // this.values = [...this.values, newValue];
+  // }
 
   increase = () => {
     this.value = this.value + 100;
@@ -96,7 +96,10 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
   counter: WritableSignal<number> = signal(100);
   doubleCounter: Signal<number> = computed(() => this.counter() * 2);
 
+  value!: number;
+
   constructor(private fooService: FooService) {
+    this.value = fooService.getValue();
     effect((onCleanup) => {
       console.log(`Counter value ${this.counter()}`)
 
@@ -118,9 +121,9 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
     this.counter.set(0);
   }
 
-  handleAddNewValue(newValue: number) {
-    this.values.push(newValue);
-  }
+  // handleAddNewValue(newValue: number) {
+  //   this.values.push(newValue);
+  // }
 
   // obsValue!: Observable<number>;
   //
