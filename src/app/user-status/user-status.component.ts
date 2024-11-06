@@ -14,7 +14,7 @@ export class UserStatusComponent implements OnInit{
   constructor(private authService: AuthService) {};
 
   ngOnInit() {
-    const isAuth = this.authService.isAuthenticated;
+    const isAuth = this.authService.isAuthenticated();
 
     this.status = isAuth ? 'Logged in' : 'Not logged in';
   }
