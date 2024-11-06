@@ -20,6 +20,7 @@ import {FooService} from "../foo.service";
 })
 export class FooComponent implements OnInit, OnChanges, OnDestroy{
   private fooService = inject(FooService);
+  value = this.fooService.getValue();
 
   @Input()
   text: string = '';
@@ -36,8 +37,8 @@ export class FooComponent implements OnInit, OnChanges, OnDestroy{
     console.log('On destroy');
   }
 
-  @Input()
-  value!: number;
+  // @Input()
+  // value!: number;
 
   @Output()
   valueChange = new EventEmitter<number>();
