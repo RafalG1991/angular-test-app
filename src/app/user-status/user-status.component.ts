@@ -1,4 +1,4 @@
-import {Component, OnInit, Signal} from '@angular/core';
+import {Component, computed, OnInit, Signal} from '@angular/core';
 import {AuthService} from "../services/auth.service";
 
 @Component({
@@ -9,9 +9,9 @@ import {AuthService} from "../services/auth.service";
   styleUrl: './user-status.component.scss'
 })
 export class UserStatusComponent {
-  status!: Signal<boolean>;
+  status!: Signal<'Logged in' | 'Logged out' >;
 
   constructor(private authService: AuthService) {
-    this.status = this.authService.isAuthenticated;
+    this.status = computed(() => this.authService.isAuthenticated() ? 'Logged in' : 'Logged out');
   };
 }
