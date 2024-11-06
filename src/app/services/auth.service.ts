@@ -5,22 +5,25 @@ import {BehaviorSubject} from "rxjs";
   providedIn: 'root'
 })
 export class AuthService {
-  public isAuthenticated = signal<boolean>(false);
-  public isAuthenticatedSubject = new BehaviorSubject<boolean>(false);
+  private _isAuthenticated = signal<boolean>(false);
+  private _isAuthenticatedSubject = new BehaviorSubject<boolean>(false);
+
+  public isAuthenticated = this._isAuthenticated.asReadonly();
+  public isAuthenticatedSubject = this._isAuthenticatedSubject.asObservable();
 
   login() {
-    this.isAuthenticated.set(true);
+    this._isAuthenticated.set(true);
   }
 
   loginSubject() {
-    this.isAuthenticatedSubject.next(true);
+    this._isAuthenticatedSubject.next(true);
   }
 
   logout() {
-    this.isAuthenticated.set(false);
+    this._isAuthenticated.set(false);
   }
 
   logoutSubject() {
-    this.isAuthenticatedSubject.next(false);
+    this._isAuthenticatedSubject.next(false);
   }
 }
