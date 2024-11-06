@@ -4,6 +4,9 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class FooService {
+  private value = Math.round(Math.random() * 1000);
 
-  constructor() { }
+  getValue() {
+    return this.value;
+  }
 }
