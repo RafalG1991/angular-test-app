@@ -1,7 +1,8 @@
-<p>App value: {{value}}</p>
-<app-foo />
+@if(isVisible) {
+  <app-user-status />
+}
 
-<app-user-status />
+<button (click)="toggle()">Toggle visibility</button>
 
 <!--<button #btn>Click me to react</button>-->
 

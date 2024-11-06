@@ -55,6 +55,12 @@ type User = {
   styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
+  isVisible: boolean = true;
+
+  toggle() {
+    this.isVisible = !this.isVisible;
+  }
+
   title = 'TestApp';
   users: {id: number, name: string}[] = [{id: 1, name: 'Tomek'}, {id: 2, name: 'Andrzej'}, {id: 3, name: 'Marzena'}, {id: 4, name: 'Wiesław'}];
   shouldBeVisible=true;
