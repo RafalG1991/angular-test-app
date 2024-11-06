@@ -66,8 +66,16 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
     this.authService.login();
   }
 
+  loginSubject() {
+    this.authService.loginSubject();
+  }
+
   logout() {
     this.authService.logout();
+  }
+
+  logoutSubject() {
+    this.authService.logoutSubject();
   }
 
   title = 'TestApp';
