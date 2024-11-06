@@ -39,6 +39,7 @@ import {
   tap,
   timer
 } from "rxjs";
+import {FooService} from "./foo.service";
 
 type User = {
   name: string;
@@ -95,7 +96,7 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
   counter: WritableSignal<number> = signal(100);
   doubleCounter: Signal<number> = computed(() => this.counter() * 2);
 
-  constructor() {
+  constructor(private fooService: FooService) {
     effect((onCleanup) => {
       console.log(`Counter value ${this.counter()}`)
 
