@@ -2,7 +2,7 @@ import {
   AfterViewInit,
   Component,
   computed,
-  effect, ElementRef, OnDestroy,
+  effect, ElementRef, inject, OnDestroy,
   OnInit,
   QueryList,
   Signal,
@@ -44,6 +44,7 @@ import {UserStatusComponent} from "./user-status/user-status.component";
 import {AuthService} from "./services/auth.service";
 import {FooPipe} from "./pipes/foo.pipe";
 import {CheckPipe} from "./pipes/check.pipe";
+import {ValuesService} from "./services/values.service";
 
 type User = {
   name: string;
@@ -62,6 +63,12 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
   date: Date = new Date();
 
   text: string = 'Ala ma kota a kot ma Alę';
+
+  private valuesService: ValuesService = inject(ValuesService);
+  values = this.valuesService.values;
+  addNewValue() {
+    this.valuesService.addNewValue(Math.round(Math.random() * 100));
+  }
 
   isVisible: boolean = true;
 
