@@ -6,8 +6,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class CheckPipe implements PipeTransform {
 
-  transform(value: unknown, ...args: unknown[]): unknown {
-    return null;
+  transform(value: string, substring: string): 'contain' | 'does not contain' {
+    return value.includes(substring) ? 'contain' : 'does not contain';
   }
 
 }
