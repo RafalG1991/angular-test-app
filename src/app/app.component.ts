@@ -42,6 +42,7 @@ import {
 import {FooService} from "./foo.service";
 import {UserStatusComponent} from "./user-status/user-status.component";
 import {AuthService} from "./services/auth.service";
+import {FooPipe} from "./pipes/foo.pipe";
 
 type User = {
   name: string;
@@ -51,7 +52,7 @@ type User = {
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HelloComponent, ParentComponent, NgIf, NgForOf, NgClass, ContainerComponent, TitleComponent, ConditionalContentComponent, SmartComponentComponent, FooComponent, TemplateComponent, ChildComponent, ChangesComponent, AsyncPipe, UserStatusComponent, DatePipe, CurrencyPipe],
+  imports: [RouterOutlet, HelloComponent, ParentComponent, NgIf, NgForOf, NgClass, ContainerComponent, TitleComponent, ConditionalContentComponent, SmartComponentComponent, FooComponent, TemplateComponent, ChildComponent, ChangesComponent, AsyncPipe, UserStatusComponent, DatePipe, CurrencyPipe, FooPipe],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
