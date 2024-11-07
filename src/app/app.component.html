@@ -1,26 +1,29 @@
-@if(isVisible) {
-  <app-user-status />
-}
+<!--@if(isVisible) {-->
+<!--  <app-user-status />-->
+<!--}-->
 
-<button (click)="toggle()">Toggle visibility</button>
-<button (click)="login()">Login</button>
-<button (click)="loginSubject()">Login subject</button>
-<button (click)="logout()">Logout</button>
-<button (click)="logoutSubject()">Logout subject</button>
+<!--<button (click)="toggle()">Toggle visibility</button>-->
+<!--<button (click)="login()">Login</button>-->
+<!--<button (click)="loginSubject()">Login subject</button>-->
+<!--<button (click)="logout()">Logout</button>-->
+<!--<button (click)="logoutSubject()">Logout subject</button>-->
 
-<h2>Pipes</h2>
-<p>{{price | foo | currency: 'EUR'}}</p>
-<p>{{date | date: 'short'}}</p>
+<!--<h2>Pipes</h2>-->
+<!--<p>{{price | foo | currency: 'EUR'}}</p>-->
+<!--<p>{{date | date: 'short'}}</p>-->
 
-<p>{{text | check: 'kota' }}</p>
+<!--<p>{{text | check: 'kota' }}</p>-->
+
+<h2>Elements greater than 10: {{ values() | countMore: 10}}</h2>
+<h2>Elements less than 10: {{ values() | countLess: 10}}</h2>
+
+<button (click)="addNewValue()">Add new value!</button>
 
 <ul>
   @for(value of values(); track $index) {
     <li>{{ value }}</li>
   }
 </ul>
-
-<button (click)="addNewValue()">Add new value!</button>
 
 <!--<button #btn>Click me to react</button>-->
 
