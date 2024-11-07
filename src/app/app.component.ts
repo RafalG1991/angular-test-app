@@ -43,6 +43,7 @@ import {FooService} from "./foo.service";
 import {UserStatusComponent} from "./user-status/user-status.component";
 import {AuthService} from "./services/auth.service";
 import {FooPipe} from "./pipes/foo.pipe";
+import {CheckPipe} from "./pipes/check.pipe";
 
 type User = {
   name: string;
@@ -52,13 +53,15 @@ type User = {
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HelloComponent, ParentComponent, NgIf, NgForOf, NgClass, ContainerComponent, TitleComponent, ConditionalContentComponent, SmartComponentComponent, FooComponent, TemplateComponent, ChildComponent, ChangesComponent, AsyncPipe, UserStatusComponent, DatePipe, CurrencyPipe, FooPipe],
+  imports: [RouterOutlet, HelloComponent, ParentComponent, NgIf, NgForOf, NgClass, ContainerComponent, TitleComponent, ConditionalContentComponent, SmartComponentComponent, FooComponent, TemplateComponent, ChildComponent, ChangesComponent, AsyncPipe, UserStatusComponent, DatePipe, CurrencyPipe, FooPipe, CheckPipe],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
   price: number = 1245.12;
   date: Date = new Date();
+
+  text: string = 'Ala ma kota a kot ma Alę';
 
   isVisible: boolean = true;
 
@@ -91,8 +94,6 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
   isLoggedIn: boolean|null = null;
 
   isActive: boolean = true;
-
-  text: string = 'Lorem Ipsum';
 
   handleClick = () => {
     this.text = 'Dolor sit amet';
