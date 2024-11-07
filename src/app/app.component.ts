@@ -45,6 +45,8 @@ import {AuthService} from "./services/auth.service";
 import {FooPipe} from "./pipes/foo.pipe";
 import {CheckPipe} from "./pipes/check.pipe";
 import {ValuesService} from "./services/values.service";
+import {CountMorePipe} from "./pipes/count-more.pipe";
+import {CountLessPipe} from "./pipes/count-less.pipe";
 
 type User = {
   name: string;
@@ -54,7 +56,7 @@ type User = {
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HelloComponent, ParentComponent, NgIf, NgForOf, NgClass, ContainerComponent, TitleComponent, ConditionalContentComponent, SmartComponentComponent, FooComponent, TemplateComponent, ChildComponent, ChangesComponent, AsyncPipe, UserStatusComponent, DatePipe, CurrencyPipe, FooPipe, CheckPipe],
+  imports: [RouterOutlet, HelloComponent, ParentComponent, NgIf, NgForOf, NgClass, ContainerComponent, TitleComponent, ConditionalContentComponent, SmartComponentComponent, FooComponent, TemplateComponent, ChildComponent, ChangesComponent, AsyncPipe, UserStatusComponent, DatePipe, CurrencyPipe, FooPipe, CheckPipe, CountMorePipe, CountLessPipe],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
