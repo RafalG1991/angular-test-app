@@ -13,7 +13,7 @@ import {
 import { RouterOutlet } from '@angular/router';
 import {HelloComponent} from "./hello/hello.component";
 import {ParentComponent} from "./parent/parent.component";
-import {AsyncPipe, NgClass, NgForOf, NgIf} from "@angular/common";
+import {AsyncPipe, CurrencyPipe, DatePipe, NgClass, NgForOf, NgIf} from "@angular/common";
 import {ContainerComponent} from "./container/container.component";
 import {TitleComponent} from "./title/title.component";
 import {ConditionalContentComponent} from "./conditional-content/conditional-content.component";
@@ -51,11 +51,14 @@ type User = {
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HelloComponent, ParentComponent, NgIf, NgForOf, NgClass, ContainerComponent, TitleComponent, ConditionalContentComponent, SmartComponentComponent, FooComponent, TemplateComponent, ChildComponent, ChangesComponent, AsyncPipe, UserStatusComponent],
+  imports: [RouterOutlet, HelloComponent, ParentComponent, NgIf, NgForOf, NgClass, ContainerComponent, TitleComponent, ConditionalContentComponent, SmartComponentComponent, FooComponent, TemplateComponent, ChildComponent, ChangesComponent, AsyncPipe, UserStatusComponent, DatePipe, CurrencyPipe],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
+  price: number = 1245.12;
+  date: Date = new Date();
+
   isVisible: boolean = true;
 
   toggle() {
