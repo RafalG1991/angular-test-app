@@ -1,8 +1,13 @@
 <form #form="ngForm" (ngSubmit)="handleSubmit(form)">
   <div>
     <input type="text" name="login" [(ngModel)]="user.login" #login="ngModel" required minlength="3">
-    @if(login.hasError('required')) {
-      <p>Login is required!</p>
+    @if(login.touched) {
+      @if(login.hasError('required')) {
+        <p>Login is required!</p>
+      }
+      @if(login.hasError('minlength')) {
+        <p>Login must be at least 3 characters!</p>
+      }
     }
   </div>
   <div>
