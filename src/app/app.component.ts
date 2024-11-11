@@ -62,6 +62,16 @@ type User = {
   styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
+  user = {
+    login: '',
+    password: '',
+  };
+
+  handleSubmit(event: Event) {
+    event.preventDefault();
+
+  }
+
   price: number = 1245.12;
   date: Date = new Date();
 
