@@ -47,7 +47,7 @@ import {CheckPipe} from "./pipes/check.pipe";
 import {ValuesService} from "./services/values.service";
 import {CountMorePipe} from "./pipes/count-more.pipe";
 import {CountLessPipe} from "./pipes/count-less.pipe";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, NgForm} from "@angular/forms";
 
 type User = {
   name: string;
@@ -67,8 +67,7 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
     password: '',
   };
 
-  handleSubmit(event: Event) {
-    event.preventDefault();
+  handleSubmit(form: NgForm) {
 
   }
 
