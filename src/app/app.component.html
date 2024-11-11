@@ -5,7 +5,7 @@
   <div>
     <input type="password" name="password" [(ngModel)]="user.password" #password="ngModel">
   </div>
-  <button type="submit">Login</button>
+  <button type="submit" [disabled]="form.invalid">Login</button>
 </form>
 
 <!--@if(isVisible) {-->
