@@ -1,3 +1,9 @@
+<form>
+  <input type="text" name="login">
+  <input type="password" name="password">
+  <button type="submit">Login</button>
+</form>
+
 <!--@if(isVisible) {-->
 <!--  <app-user-status />-->
 <!--}-->
@@ -14,16 +20,16 @@
 
 <!--<p>{{text | check: 'kota' }}</p>-->
 
-<h2>Elements greater than 10: {{ values() | countMore: 10}}</h2>
-<h2>Elements less than 10: {{ values() | countLess: 10}}</h2>
+<!--<h2>Elements greater than 10: {{ values() | countMore: 10}}</h2>-->
+<!--<h2>Elements less than 10: {{ values() | countLess: 10}}</h2>-->
 
-<button (click)="addNewValue()">Add new value!</button>
+<!--<button (click)="addNewValue()">Add new value!</button>-->
 
-<ul>
-  @for(value of values(); track $index) {
-    <li>{{ value }}</li>
-  }
-</ul>
+<!--<ul>-->
+<!--  @for(value of values(); track $index) {-->
+<!--    <li>{{ value }}</li>-->
+<!--  }-->
+<!--</ul>-->
 
 <!--<button #btn>Click me to react</button>-->
 
