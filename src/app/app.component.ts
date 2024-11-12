@@ -48,6 +48,7 @@ import {ValuesService} from "./services/values.service";
 import {CountMorePipe} from "./pipes/count-more.pipe";
 import {CountLessPipe} from "./pipes/count-less.pipe";
 import {FormsModule, NgForm} from "@angular/forms";
+import {ReactiveFormComponent} from "./reactive-form/reactive-form.component";
 
 type User = {
   name: string;
@@ -57,7 +58,7 @@ type User = {
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HelloComponent, ParentComponent, NgIf, NgForOf, NgClass, ContainerComponent, TitleComponent, ConditionalContentComponent, SmartComponentComponent, FooComponent, TemplateComponent, ChildComponent, ChangesComponent, AsyncPipe, UserStatusComponent, DatePipe, CurrencyPipe, FooPipe, CheckPipe, CountMorePipe, CountLessPipe, FormsModule],
+  imports: [RouterOutlet, HelloComponent, ParentComponent, NgIf, NgForOf, NgClass, ContainerComponent, TitleComponent, ConditionalContentComponent, SmartComponentComponent, FooComponent, TemplateComponent, ChildComponent, ChangesComponent, AsyncPipe, UserStatusComponent, DatePipe, CurrencyPipe, FooPipe, CheckPipe, CountMorePipe, CountLessPipe, FormsModule, ReactiveFormComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
