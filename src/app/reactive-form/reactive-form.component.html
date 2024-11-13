@@ -1,6 +1,14 @@
 <form [formGroup]="loginForm" (ngSubmit)="handleSubmit()">
   <div>
     <input type="text" name="login" formControlName="login" />
+    @if(loginForm.controls.login.touched) {
+      @if(loginForm.controls.login.hasError('required')) {
+        <p>Login is required!</p>
+      }
+      @if(loginForm.controls.login.hasError('minlength')) {
+        <p>Login must be at least 3 characters!</p>
+      }
+    }
   </div>
   <div>
     <input type="password" name="password" formControlName="password" />
