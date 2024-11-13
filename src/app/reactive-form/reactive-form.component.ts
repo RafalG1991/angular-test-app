@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {FormControl, ReactiveFormsModule} from "@angular/forms";
+import {FormControl, FormGroup, ReactiveFormsModule} from "@angular/forms";
 
 @Component({
   selector: 'app-reactive-form',
@@ -9,5 +9,8 @@ import {FormControl, ReactiveFormsModule} from "@angular/forms";
   styleUrl: './reactive-form.component.scss'
 })
 export class ReactiveFormComponent {
-  login = new FormControl('');
+  loginForm = new FormGroup({
+    login: new FormControl(''),
+    password: new FormControl(''),
+  });
 }
