@@ -10,8 +10,6 @@
       }
     }
   </div>
-  <div>
-    <input type="password" name="password" formControlName="password" />
-  </div>
+  <app-input name="password" type="password" [group]="loginForm"/>
   <button type="submit" [disabled]="loginForm.invalid">Submit</button>
 </form>

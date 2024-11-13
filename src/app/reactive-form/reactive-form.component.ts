@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import {FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
+import {InputComponent} from "../input/input.component";
 
 @Component({
   selector: 'app-reactive-form',
   standalone: true,
-  imports: [ReactiveFormsModule, FormsModule],
+  imports: [ReactiveFormsModule, FormsModule, InputComponent],
   templateUrl: './reactive-form.component.html',
   styleUrl: './reactive-form.component.scss'
 })
