@@ -1,3 +1,11 @@
 <div [formGroup]="group">
   <input [type]="type" [name]="name" [formControlName]="name"/>
+  @if(isInvalid()) {
+    @if(hasError('required')) {
+      <p>Login is required!</p>
+    }
+    @if(hasError('minlength')) {
+      <p>Login must be at least 3 characters!</p>
+    }
+  }
 </div>

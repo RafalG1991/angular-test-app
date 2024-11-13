@@ -19,4 +19,20 @@ export class InputComponent {
 
   @Input()
   group!: FormGroup;
+
+  isInvalid() {
+    const control = this.group.get(this.name);
+
+    if(!control) return false;
+
+    return control.touched && control.invalid;
+  }
+
+  hasError(code: string) {
+    const control = this.group.get(this.name);
+
+    if(!control) return false;
+
+    return control.touched && control.hasError(code);
+  }
 }
