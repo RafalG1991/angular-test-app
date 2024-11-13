@@ -18,4 +18,15 @@ export class ReactiveFormComponent {
   handleSubmit() {
     console.log(this.loginForm);
   }
+
+  reset() {
+    this.loginForm.reset();
+  }
+
+  setDefault() {
+    this.loginForm.setValue({
+      login: 'Default Login',
+      password: 'admin123',
+    });
+  }
 }

@@ -2,4 +2,6 @@
   <app-input name="login" type="text" [group]="loginForm" />
   <app-input name="password" type="password" [group]="loginForm"/>
   <button type="submit" [disabled]="loginForm.invalid">Submit</button>
+  <button type="button" (click)="setDefault()">Set Default</button>
+  <button type="button" (click)="reset()">Reset</button>
 </form>
