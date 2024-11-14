@@ -49,6 +49,7 @@ import {CountMorePipe} from "./pipes/count-more.pipe";
 import {CountLessPipe} from "./pipes/count-less.pipe";
 import {FormsModule, NgForm} from "@angular/forms";
 import {ReactiveFormComponent} from "./reactive-form/reactive-form.component";
+import {HttpClient} from "@angular/common/http";
 
 type User = {
   name: string;
@@ -63,6 +64,8 @@ type User = {
   styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
+  private http = inject(HttpClient);
+
   user = {
     login: '',
     password: '',
@@ -205,6 +208,7 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   ngOnInit(): void {
+    this.http.get('https://api.ipify.org?format=json');
     // const obs = interval(1000).pipe(share());
     //
     // obs.subscribe(val => console.log(val));
@@ -213,16 +217,16 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
     //   obs.subscribe(val => console.log(val));
     // }, 5000);
 
-    const subject = new Subject<number>();
-
-    subject.subscribe(val => console.log(val));
-    subject.subscribe(val => console.log(val));
-
+    // const subject = new Subject<number>();
+    //
+    // subject.subscribe(val => console.log(val));
+    // subject.subscribe(val => console.log(val));
+    //
     // subject.next(1000);
-
-    interval(1000).subscribe(subject);
-
-    timer(5000).subscribe(_ => subject.complete());
+    //
+    // interval(1000).subscribe(subject);
+    //
+    // timer(5000).subscribe(_ => subject.complete());
 
     // this.timer = interval(1000)
     //   .pipe(
