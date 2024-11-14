@@ -208,7 +208,7 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   ngOnInit(): void {
-    this.http.get('https://api.ipify.org?format=json');
+    this.http.get('https://api.ipify.org?format=json').subscribe();
     // const obs = interval(1000).pipe(share());
     //
     // obs.subscribe(val => console.log(val));
