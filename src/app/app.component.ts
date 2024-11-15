@@ -208,11 +208,12 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   ngOnInit(): void {
-    this.http.get<{ ip: string }>('https://api.ipify.org?format=json')
+    const httpObs$ = this.http.get<{ ip: string }>('https://api.ipify.org?format=json')
       .pipe(
         map(data => data.ip)
       )
-      .subscribe(ip => console.log("IP: ", ip));
+    httpObs$.subscribe(ip => console.log("IP1: ", ip));
+    httpObs$.subscribe(ip => console.log("IP2: ", ip));
 
     // const obs = interval(1000).pipe(share());
     //
