@@ -1,6 +1,6 @@
 import {inject, Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {catchError, retry, throwError} from "rxjs";
+import {catchError, of, retry, throwError} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +15,8 @@ export class ApiService {
         catchError(err => {
           console.log(err);
 
-          return throwError(() => new Error('Something went wrong! Try again later!'));
+          // return throwError(() => new Error('Something went wrong! Try again later!'));
+          return of(null);
         })
       );
   }
