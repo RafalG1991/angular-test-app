@@ -50,6 +50,7 @@ import {CountLessPipe} from "./pipes/count-less.pipe";
 import {FormsModule, NgForm} from "@angular/forms";
 import {ReactiveFormComponent} from "./reactive-form/reactive-form.component";
 import {HttpClient} from "@angular/common/http";
+import {ApiService} from "./services/api.service";
 
 type User = {
   name: string;
@@ -64,7 +65,7 @@ type User = {
   styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
-  private http = inject(HttpClient);
+  private api = inject(ApiService);
 
   user = {
     login: '',
@@ -208,7 +209,7 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   ngOnInit(): void {
-    const httpObs$ = this.http.get<{ ip: string }>('https://api.ipify.org?format=json')
+    const httpObs$ = this.api.get<{ ip: string }>('https://api.ipify.org?format=json')
       .pipe(
         map(data => data.ip)
       )
