@@ -209,7 +209,7 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   ngOnInit(): void {
-    const httpObs$ = this.api.get<{ ip: string }>('https://api.ipify.org?format=json')
+    const httpObs$ = this.api.get<{ ip: string }>('?format=json')
       .pipe(
         map(data => data?.ip || 'Something went wrong!')
       )
