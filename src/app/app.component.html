@@ -1,22 +1,25 @@
-<form #form="ngForm" (ngSubmit)="handleSubmit(form)">
-  <div>
-    <input type="text" name="login" [(ngModel)]="user.login" #login="ngModel" required minlength="3">
-    @if(login.touched) {
-      @if(login.hasError('required')) {
-        <p>Login is required!</p>
-      }
-      @if(login.hasError('minlength')) {
-        <p>Login must be at least 3 characters!</p>
-      }
-    }
-  </div>
-  <div>
-    <input type="password" name="password" [(ngModel)]="user.password" #password="ngModel">
-  </div>
-  <button type="submit" [disabled]="form.invalid">Login</button>
-</form>
+<h1>Application</h1>
+<router-outlet />
 
-<app-reactive-form />
+<!--<form #form="ngForm" (ngSubmit)="handleSubmit(form)">-->
+<!--  <div>-->
+<!--    <input type="text" name="login" [(ngModel)]="user.login" #login="ngModel" required minlength="3">-->
+<!--    @if(login.touched) {-->
+<!--      @if(login.hasError('required')) {-->
+<!--        <p>Login is required!</p>-->
+<!--      }-->
+<!--      @if(login.hasError('minlength')) {-->
+<!--        <p>Login must be at least 3 characters!</p>-->
+<!--      }-->
+<!--    }-->
+<!--  </div>-->
+<!--  <div>-->
+<!--    <input type="password" name="password" [(ngModel)]="user.password" #password="ngModel">-->
+<!--  </div>-->
+<!--  <button type="submit" [disabled]="form.invalid">Login</button>-->
+<!--</form>-->
+
+<!--<app-reactive-form />-->
 
 <!--@if(isVisible) {-->
 <!--  <app-user-status />-->
