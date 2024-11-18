@@ -4,6 +4,7 @@ import {DashboardComponent} from "./dashboard/dashboard.component";
 import {ProductsListComponent} from "./products-list/products-list.component";
 import {ProductDetailsComponent} from "./product-details/product-details.component";
 import {ProductComponent} from "./product/product.component";
+import {ErrorComponent} from "./error/error.component";
 
 export const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -13,4 +14,6 @@ export const routes: Routes = [
       { path: ':productId', component: ProductDetailsComponent },
     ]
   },
+  { path: '', redirectTo: 'home' },
+  { path: '**', component: ErrorComponent },
 ];
