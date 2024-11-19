@@ -67,9 +67,9 @@ type User = {
 export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
   private router = inject(Router);
 
-  redirectWithDelay() {
+  redirectWithDelay(productId: string) {
     setTimeout(() => {
-      this.router.navigate(['/product', 'list']);
+      this.router.navigate(['/product', productId]);
     }, 2000);
   }
 
