@@ -10,7 +10,7 @@ import {
   ViewChildren,
   WritableSignal
 } from '@angular/core';
-import {RouterLink, RouterOutlet} from '@angular/router';
+import {Router, RouterLink, RouterOutlet} from '@angular/router';
 import {HelloComponent} from "./hello/hello.component";
 import {ParentComponent} from "./parent/parent.component";
 import {AsyncPipe, CurrencyPipe, DatePipe, NgClass, NgForOf, NgIf} from "@angular/common";
@@ -65,6 +65,8 @@ type User = {
   styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
+  private router = inject(Router);
+
   private api = inject(ApiService);
 
   user = {
