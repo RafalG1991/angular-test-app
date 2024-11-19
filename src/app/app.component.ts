@@ -67,6 +67,12 @@ type User = {
 export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
   private router = inject(Router);
 
+  redirectWithDelay() {
+    setTimeout(() => {
+      this.router.navigate(['/product', 'list']);
+    }, 2000);
+  }
+
   private api = inject(ApiService);
 
   user = {
