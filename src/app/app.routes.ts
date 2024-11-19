@@ -5,11 +5,16 @@ import {ProductsListComponent} from "./products-list/products-list.component";
 import {ProductDetailsComponent} from "./product-details/product-details.component";
 import {ProductComponent} from "./product/product.component";
 import {ErrorComponent} from "./error/error.component";
+import {authGuard} from "./auth.guard";
 
 export const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'dashboard', component: DashboardComponent },
-  { path: 'product',  component: ProductComponent, children: [
+  {
+    path: 'product',
+    canActivate: [authGuard],
+    component: ProductComponent,
+    children: [
       { path: 'list', component: ProductsListComponent },
       { path: ':productId', component: ProductDetailsComponent },
     ]
