@@ -18,7 +18,7 @@ export class PokemonDetailsComponent implements OnInit {
   pokemon$!: Observable<PokemonDetailsResponse>;
 
   ngOnInit() {
-    this.route.paramMap.pipe(
+    this.pokemon$ = this.route.paramMap.pipe(
       map(params => params.get('id')),
       filter(pokemonName => pokemonName !== null),
       switchMap(pokemonName => this.pokemonService.getPokemonDetail(pokemonName))
