@@ -1,5 +1,5 @@
 <ul>
   @for(pokemon of (pokemons$ | async); track pokemon.name) {
-    <li>{{pokemon.name}}</li>
+    <app-single-pokemon [pokemon]="pokemon" />
   }
 </ul>

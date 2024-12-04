@@ -3,12 +3,14 @@ import {PokemonService} from "../services/pokemon.service";
 import {map, Observable} from "rxjs";
 import {PokemonListElement} from "../types";
 import {AsyncPipe} from "@angular/common";
+import {SinglePokemonComponent} from "../single-pokemon/single-pokemon.component";
 
 @Component({
   selector: 'app-pokemon-list',
   standalone: true,
   imports: [
-    AsyncPipe
+    AsyncPipe,
+    SinglePokemonComponent
   ],
   templateUrl: './pokemon-list.component.html',
   styleUrl: './pokemon-list.component.scss'
