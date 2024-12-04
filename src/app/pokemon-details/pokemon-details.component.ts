@@ -3,11 +3,14 @@ import {PokemonService} from "../services/pokemon.service";
 import {filter, map, Observable, switchMap} from "rxjs";
 import {PokemonDetailsResponse, PokemonListElement} from "../types";
 import {ActivatedRoute} from "@angular/router";
+import {AsyncPipe} from "@angular/common";
 
 @Component({
   selector: 'app-pokemon-details',
   standalone: true,
-  imports: [],
+  imports: [
+    AsyncPipe
+  ],
   templateUrl: './pokemon-details.component.html',
   styleUrl: './pokemon-details.component.scss'
 })

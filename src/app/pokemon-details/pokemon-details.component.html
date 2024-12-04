@@ -1,1 +1,12 @@
-<p>pokemon-details works!</p>
+@let pokemon = pokemon$ | async;
+
+@if((pokemon$ | async); as pokemon) {
+  <h2>{{pokemon.name}}</h2>
+  <p>{{pokemon.weight}}</p>
+  <p>{{pokemon.height}}</p>
+  <ul>
+    @for(ability of pokemon.abilities; track $index) {
+      <li>{{ability.ability.name}}</li>
+    }
+  </ul>
+}
