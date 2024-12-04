@@ -3,4 +3,7 @@ export type PokemonListElement = {
   url: string;
 }
 
-
+export type PokemonListResponse = {
+  count: number;
+  results: PokemonListElement[];
+}
