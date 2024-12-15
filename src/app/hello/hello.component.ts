@@ -13,6 +13,8 @@ export class HelloComponent {
   @Input()
   name: string = "";
   value = "Lorem Ipsum";
+  @Input()
+  text: string = "";
   getValue() {
     return this.value;
   }
