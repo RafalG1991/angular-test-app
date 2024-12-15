@@ -32,6 +32,7 @@ describe('HelloComponent', () => {
     const expectedText = 'hello!';
 
     component.text = expectedText;
+    fixture.detectChanges();
 
     const elementP = fixture.nativeElement.querySelector('p');
 
