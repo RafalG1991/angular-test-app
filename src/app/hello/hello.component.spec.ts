@@ -20,4 +20,12 @@ describe('HelloComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should render hello world paragraph', () => {
+    const expectedText = 'hello world!';
+
+    const elementP = fixture.nativeElement.querySelector('p');
+
+    expect(elementP.textContent).toBe(expectedText);
+  });
 });
