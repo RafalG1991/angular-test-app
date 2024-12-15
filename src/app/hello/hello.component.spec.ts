@@ -28,4 +28,13 @@ describe('HelloComponent', () => {
 
     expect(elementP.textContent).toBe(expectedText);
   });
+  it('should render paragraph with passed value', () => {
+    const expectedText = 'hello!';
+
+    component.text = expectedText;
+
+    const elementP = fixture.nativeElement.querySelector('p');
+
+    expect(elementP.textContent).toBe(expectedText);
+  });
 });
