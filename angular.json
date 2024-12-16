@@ -101,6 +101,17 @@
             ],
             "scripts": []
           }
+        },
+        "e2e": {
+          "builder": "playwright-ng-schematics:playwright",
+          "options": {
+            "devServerTarget": "TestApp:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "TestApp:serve:production"
+            }
+          }
         }
       }
     }
