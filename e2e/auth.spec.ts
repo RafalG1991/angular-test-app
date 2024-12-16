@@ -18,5 +18,8 @@ test.describe('Auth', () => {
 
     await expect(welcome).not.toBeVisible();
 
+    await button.click();
+
+    await expect(welcome).toBeVisible();
   });
 })
