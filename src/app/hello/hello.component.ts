@@ -1,4 +1,4 @@
-import {Component, Input, signal} from '@angular/core';
+import {Component, input, Input, OnInit, signal} from '@angular/core';
 
 @Component({
   selector: 'app-hello',
@@ -7,17 +7,21 @@ import {Component, Input, signal} from '@angular/core';
   templateUrl: './hello.component.html',
   styleUrl: './hello.component.scss'
 })
-export class HelloComponent {
+export class HelloComponent implements OnInit {
   @Input()
   users: string[] = [''];
   @Input()
   name: string = "";
   value = "Lorem Ipsum";
-  @Input()
-  text: string = "";
+
+  text = input.required<string>();
   getValue() {
     return this.value;
   }
 
   message = signal<string>('');
+
+  ngOnInit() {
+    this.message.set(this.text());
+  }
 }
