@@ -8,5 +8,15 @@ test.describe('Auth', () => {
 
     expect(header).toBeDefined();
     expect(header).toHaveText('Hello App!');
-  })
+  });
+
+  test('Clicks login button gets welcome message', async () => {
+    await page.goto('/');
+
+    const button = page.getByTestId('login-button');
+    const welcome = page.getByTestId('welcome-message');
+
+    await expect(welcome).not.toBeVisible();
+
+  });
 })
