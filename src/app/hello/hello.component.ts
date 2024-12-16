@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, signal} from '@angular/core';
 
 @Component({
   selector: 'app-hello',
@@ -18,4 +18,6 @@ export class HelloComponent {
   getValue() {
     return this.value;
   }
+
+  message = signal<string>('');
 }
